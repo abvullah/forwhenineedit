@@ -23,6 +23,10 @@ npm test
 
 The project has no npm runtime dependencies. `package-lock.json` is kept so `npm ci` can be used in automated environments.
 
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
+
 ## Tools
 
 ### Images
