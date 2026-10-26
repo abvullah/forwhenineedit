@@ -1,0 +1,18 @@
+{
+  "name": "For when I need it",
+  "short_name": "Need it",
+  "description": "Privacy-first file and image tools that run in your browser.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fbfaf8",
+  "theme_color": "#2b3a67",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

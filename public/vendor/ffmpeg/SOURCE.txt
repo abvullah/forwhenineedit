@@ -1,0 +1,6 @@
+FFmpeg.wasm browser wrapper 0.12.10 (MIT)
+https://github.com/ffmpegwasm/ffmpeg.wasm/tree/v0.12.10
+
+FFmpeg core-mt 0.12.10 (GPL-2.0-or-later)
+https://github.com/ffmpegwasm/ffmpeg.wasm/tree/v0.12.10
+The multithreaded core is built from FFmpeg and is distributed with GPL-2.0-or-later terms. Its corresponding upstream sources and build scripts are available at the repository tag above.

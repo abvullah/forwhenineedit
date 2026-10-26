@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For when I need it – local file and image tools</title>
+<meta name="description" content="A collection of file and image tools that work locally in your browser. Your files stay on your device.">
+<meta name="theme-color" content="#2b3a67">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/fonts.css">
+<script src="/js/theme.js"></script>
+<script src="vendor/pdf-lib/pdf-lib.min.js"></script>
+<script src="vendor/jszip/jszip.min.js"></script>
+<script src="vendor/tesseract/tesseract.min.js"></script>
+<script src="vendor/qrcode-generator/qrcode.js"></script>
+<script src="vendor/qrcode-generator/qrcode_UTF8.js"></script>
+<script src="vendor/jsqr/jsQR.js"></script>
+<script src="vendor/jsbarcode/JsBarcode.all.min.js"></script>
+<script src="vendor/ffmpeg/ffmpeg.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="bar">
+<a class="logo" href="#" id="logo"></a>
+<a class="btn" id="about-nav" href="/about">About</a>
+<button class="btn" id="kbtn" aria-label="Search tools (Ctrl+K)">Search</button>
+<button class="btn" id="theme" aria-label="Toggle dark mode">Theme</button>
+</div></header>
+<main id="main"></main>
+<footer id="foot"></footer>
+<dialog id="pal" aria-label="Search tools"><input id="q" type="text" placeholder="Search tools…" aria-label="Search tools"><div id="res"></div></dialog>
+<div id="live" aria-live="polite" style="position:absolute;left:-999px"></div>
+<script src="js/core.js"></script>
+<script src="js/image.js"></script>
+<script src="js/pdf.js"></script>
+<script src="js/pdf-render.js"></script>
+<script src="js/pdf-images.js"></script>
+<script src="js/ocr.js"></script>
+<script src="js/qr-generator.js"></script>
+<script src="js/qr-scanner.js"></script>
+<script src="js/barcode.js"></script>
+<script src="js/media-core.js"></script>
+<script src="js/video.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/background.js"></script>
+<script src="js/ai-background.js"></script>
+<script src="js/utilities.js"></script>
+<script src="js/registry.js"></script>
+<script src="js/utilities2.js"></script>
+<script src="js/views.js"></script>
+<script src="js/palette.js"></script>
+<script src="js/legal.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

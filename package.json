@@ -1,0 +1,1 @@
+{"name":"for-when-i-need-it","version":"1.0.0","private":true,"scripts":{"start":"node server.js","check":"for f in public/js/*.js public/sw.js server.js test/*.js; do node --check \"$f\" || exit 1; done","test":"node --test test/*.test.js"}}
