@@ -2,8 +2,6 @@
 
 For when I need it is a website offering file, image, media, and text tools. The website is hosted online, but selected files and entered content are processed in your browser and are not uploaded to us or sent to a processing server. Your browser does request the site, libraries, and models from the website host; the host may receive ordinary technical request data such as your IP address. There are no user accounts, subscriptions, payments, or file-upload APIs. Vercel Web Analytics is loaded on deployed sites to collect aggregate visit metrics; it does not access selected file contents.
 
-## Run locally
-
 Install [Node.js 24 or newer](https://nodejs.org/), then from this folder run:
 
 ```sh
