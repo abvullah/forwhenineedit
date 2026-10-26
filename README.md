@@ -1,6 +1,6 @@
 # For when I need it
 
-For when I need it is a website offering file, image, media, and text tools. The website is hosted online, but selected files and entered content are processed in your browser and are not uploaded to us or sent to a processing server. Your browser does request the site, libraries, and models from the website host; the host may receive ordinary technical request data such as your IP address. There are no user accounts, subscriptions, payments, analytics, or file-upload APIs.
+For when I need it is a website offering file, image, media, and text tools. The website is hosted online, but selected files and entered content are processed in your browser and are not uploaded to us or sent to a processing server. Your browser does request the site, libraries, and models from the website host; the host may receive ordinary technical request data such as your IP address. There are no user accounts, subscriptions, payments, or file-upload APIs. Vercel Web Analytics is loaded on deployed sites to collect aggregate visit metrics; it does not access selected file contents.
 
 ## Run locally
 
@@ -12,7 +12,9 @@ npm start
 
 Open <http://localhost:3000>. This starts the website on your own machine for development or personal use. The Node.js server serves the static files in `public/` and adds the security headers needed for browser workers and media processing. It accepts only `GET` and `HEAD` requests; files selected in the browser are never sent to it.
 
-To make the website available to others, deploy the contents of `public/` on a static host, or deploy the Node.js server behind a host configured to run it. The deployed site must provide the COOP/COEP headers required by some browser tools (notably FFmpeg). The website host serves app and runtime assets but does not receive selected file contents.
+To deploy on Vercel, import this repository and deploy from its root directory. [`vercel.json`](./vercel.json) configures a static deployment from `public/`, disables framework/build detection so `server.js` is not invoked as a function, enables clean page URLs, and sets the security/isolation headers required by browser workers and media processing. The Vercel host serves app and runtime assets but does not receive selected file contents.
+
+For another static host, publish the contents of `public/`, configure the COOP/COEP headers required by some browser tools (notably FFmpeg), and set up clean URLs/redirects as needed.
 
 Run the checks with:
 
@@ -60,6 +62,8 @@ Tool limits and supported formats are shown in each tool. For example, the AI ba
 - Files are read and processed by the browser; selected file contents are not uploaded to us or sent to a processing server.
 - The browser downloads the app's self-hosted libraries and model/runtime files from the website host as needed. First use of AI removal, OCR, or media conversion may take longer while those assets load.
 - As with any hosted website, the hosting provider receives requests for pages and assets and may process connection metadata such as IP addresses according to its own policies.
+- Vercel Web Analytics is included for deployed sites. It records anonymous, aggregated page-view metrics such as page URLs, referrers, approximate location, and device/browser information. Analytics does not read or upload files selected in the browser and is disabled on localhost. See [Vercel's analytics privacy documentation](https://vercel.com/docs/analytics/privacy-policy).
+- To activate metrics, deploy the site to Vercel and enable **Web Analytics** in the Vercel project dashboard. The integration uses Vercel's first-party `/_vercel/insights/script.js` route; it does not load on localhost.
 - A service worker caches the app shell and runtime assets for later offline use. Offline availability depends on having opened the app and loaded the required assets before disconnecting.
 - QR camera scanning requires browser permission. Camera access is generally available on `localhost` or an HTTPS site.
 - The app stores the selected light/dark theme preference in browser local storage.

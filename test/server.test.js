@@ -1,7 +1,20 @@
 const {test}=require("node:test");
 const assert=require("node:assert/strict");
 const http=require("node:http");
+const fs=require("node:fs");
+const path=require("node:path");
 const {createServer}=require("../server");
+
+test("Vercel deploys the browser app as static files, not a function",()=>{
+ const config=JSON.parse(fs.readFileSync(path.join(__dirname,"..","vercel.json"),"utf8"));
+ assert.equal(config.framework,null);
+ assert.equal(config.buildCommand,null);
+ assert.equal(config.outputDirectory,"public");
+ assert.equal(config.cleanUrls,true);
+ assert.equal(config.headers.find(rule=>rule.source==="/(.*)").headers.find(header=>header.key==="Cross-Origin-Embedder-Policy").value,"require-corp");
+ assert.deepEqual(config.redirects,[{source:"/dmca",destination:"/copyright",permanent:true}]);
+ assert.deepEqual(config.rewrites,[{source:"/copyright",destination:"/dmca.html"}]);
+});
 
 test("serves the local app safely without file or account APIs",async t=>{
  const server=createServer();
@@ -21,6 +34,10 @@ test("serves the local app safely without file or account APIs",async t=>{
  const registry=await fetch(origin+"/js/registry.js").then(response=>response.text());
  assert.match(registry,/id:"ai-background-remover"/);
  assert.match(registry,/run:aiBgTool/);
+ const analyticsBootstrap=await fetch(origin+"/js/vercel-analytics.js").then(response=>response.text());
+ assert.match(analyticsBootstrap,/localhost/);
+ assert.match(analyticsBootstrap,/_vercel\/insights\/script\.js/);
+ assert.match(homeHtml,/vercel-analytics\.js/);
  for(const asset of [
   "/js/ai-background.js",
   "/js/ai-background-worker.js",

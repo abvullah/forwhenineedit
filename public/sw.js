@@ -3,7 +3,7 @@ const SHELL_PATHS=["/","/index.html","/about","/accessibility","/security","/ai-
  "/js/core.js","/js/image.js","/js/pdf.js","/js/pdf-render.js","/js/pdf-images.js","/js/ocr.js","/js/qr-generator.js",
  "/js/qr-scanner.js","/js/barcode.js","/js/media-core.js","/js/video.js","/js/audio.js","/js/background.js",
  "/js/ai-background.js","/js/ai-background-worker.js","/js/utilities.js","/js/registry.js","/js/utilities2.js",
- "/js/views.js","/js/theme.js","/js/palette.js","/js/legal.js","/js/main.js",
+ "/js/views.js","/js/theme.js","/js/vercel-analytics.js","/js/palette.js","/js/legal.js","/js/main.js",
  "/vendor/pdf-lib/pdf-lib.min.js","/vendor/jszip/jszip.min.js","/vendor/tesseract/tesseract.min.js",
  "/vendor/qrcode-generator/qrcode.js","/vendor/qrcode-generator/qrcode_UTF8.js","/vendor/jsqr/jsQR.js",
  "/vendor/jsbarcode/JsBarcode.all.min.js","/vendor/ffmpeg/ffmpeg.js"];
