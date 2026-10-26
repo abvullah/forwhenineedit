@@ -1,8 +1,8 @@
 /* ---------- Views ---------- */
 const main=$("#main");let cat="all";
 function home(){
- document.title=CONFIG.brand+" – local file and image tools";
- main.innerHTML=`<h1>Tools for when you need them.</h1><p class="sub">Compress images, merge PDFs, recognize text and more. Everything runs locally in your browser; your files stay on your device.</p><div id="dz"></div><div class="chips" role="group" aria-label="Filter tools"></div><div class="grid"></div>`;
+ document.title=CONFIG.brand+" – browser file and image tools";
+ main.innerHTML=`<h1>Tools for when you need them.</h1><p class="sub">Compress images, merge PDFs, recognize text and more. Files are processed in your browser and are not uploaded to us.</p><div id="dz"></div><div class="chips" role="group" aria-label="Filter tools"></div><div class="grid"></div>`;
  const chips=$(".chips",main);
  [["all","All"],...Object.entries(CATS).map(([k,v])=>[k,v[0]])].forEach(([k,n])=>{const c=el(`<button class="chip" aria-pressed="${k===cat}"></button>`);c.textContent=n;c.onclick=()=>{cat=k;home()};chips.append(c)});
  const g=$(".grid",main);

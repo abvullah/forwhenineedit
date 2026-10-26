@@ -35,12 +35,18 @@ test("serves the local app safely without file or account APIs",async t=>{
  const about=await fetch(origin+"/about");
  assert.equal(about.status,200);
  const aboutHtml=await about.text();
- assert.match(aboutHtml,/Add your information about this project here/);
+ assert.match(aboutHtml,/<h1>About<\/h1>/);
  const oldAbout=await fetch(origin+"/about.html",{redirect:"manual"});
  assert.equal(oldAbout.status,301);
  assert.equal(oldAbout.headers.get("location"),"/about");
  for(const [page,file] of [["accessibility","accessibility.html"],["security","security.html"],["ai-disclosure","ai-disclosure.html"],["copyright","dmca.html"]]){
-  assert.equal((await fetch(origin+"/"+page)).status,200,page+" should have a clean URL");
+  const response=await fetch(origin+"/"+page);
+  assert.equal(response.status,200,page+" should have a clean URL");
+  if(page==="ai-disclosure"){
+   const disclosure=await response.text();
+   assert.match(disclosure,/website hosted online/);
+   assert.match(disclosure,/not uploaded to us/);
+  }
   const oldPage=await fetch(origin+"/"+file,{redirect:"manual"});
   assert.equal(oldPage.status,301,file+" should redirect to its clean URL");
   assert.equal(oldPage.headers.get("location"),"/"+page);

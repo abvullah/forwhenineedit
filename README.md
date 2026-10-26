@@ -1,6 +1,6 @@
 # For when I need it
 
-For when I need it is a local-first collection of file, image, media, and text tools. It runs as a static web app: selected files and entered content are processed in your browser and are not uploaded by the app. There are no user accounts, subscriptions, payments, analytics, or file-upload APIs.
+For when I need it is a website offering file, image, media, and text tools. The website is hosted online, but selected files and entered content are processed in your browser and are not uploaded to us or sent to a processing server. Your browser does request the site, libraries, and models from the website host; the host may receive ordinary technical request data such as your IP address. There are no user accounts, subscriptions, payments, analytics, or file-upload APIs.
 
 ## Run locally
 
@@ -10,7 +10,9 @@ Install [Node.js 24 or newer](https://nodejs.org/), then from this folder run:
 npm start
 ```
 
-Open <http://localhost:3000>. The Node.js server serves the static files in `public/` and adds the security headers needed for browser workers and media processing. It listens on the local machine and accepts only `GET` and `HEAD` requests.
+Open <http://localhost:3000>. This starts the website on your own machine for development or personal use. The Node.js server serves the static files in `public/` and adds the security headers needed for browser workers and media processing. It accepts only `GET` and `HEAD` requests; files selected in the browser are never sent to it.
+
+To make the website available to others, deploy the contents of `public/` on a static host, or deploy the Node.js server behind a host configured to run it. The deployed site must provide the COOP/COEP headers required by some browser tools (notably FFmpeg). The website host serves app and runtime assets but does not receive selected file contents.
 
 Run the checks with:
 
@@ -55,8 +57,9 @@ Tool limits and supported formats are shown in each tool. For example, the AI ba
 
 ## Privacy, offline use, and permissions
 
-- Files are read and processed by the browser; the app server does not receive their contents.
-- The browser downloads the app's self-hosted libraries and model/runtime files as needed. First use of AI removal, OCR, or media conversion may take longer while those assets load.
+- Files are read and processed by the browser; selected file contents are not uploaded to us or sent to a processing server.
+- The browser downloads the app's self-hosted libraries and model/runtime files from the website host as needed. First use of AI removal, OCR, or media conversion may take longer while those assets load.
+- As with any hosted website, the hosting provider receives requests for pages and assets and may process connection metadata such as IP addresses according to its own policies.
 - A service worker caches the app shell and runtime assets for later offline use. Offline availability depends on having opened the app and loaded the required assets before disconnecting.
 - QR camera scanning requires browser permission. Camera access is generally available on `localhost` or an HTTPS site.
 - The app stores the selected light/dark theme preference in browser local storage.

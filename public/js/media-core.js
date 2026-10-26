@@ -9,7 +9,7 @@ function mediaTool(root,kind){
   <button id="media-run" class="btn p" type="button" disabled>Process media</button>
  </div>
  <p id="media-file" class="note"></p>
- <p id="media-status" class="note" role="status" aria-live="polite">Runs on your device with the self-hosted FFmpeg runtime. First use downloads about 31 MB of core files.</p>
+ <p id="media-status" class="note" role="status" aria-live="polite">Processes media in your browser with this website's FFmpeg runtime. First use downloads about 31 MB of core files.</p>
  <p class="note">Input files are limited to 100 MB; outputs are limited to 200 MB. Processing time and supported codecs depend on your device. GIF conversion is capped at 30 seconds.</p>`;
  const options=$("#media-options",root),run=$("#media-run",root),fileLabel=$("#media-file",root),status=$("#media-status",root);
  let file=null,ffmpeg=null,ffmpegPromise=null,running=false;
@@ -25,7 +25,7 @@ function mediaTool(root,kind){
  const getFfmpeg=async()=>{
   if(ffmpeg?.loaded)return ffmpeg;
   if(!ffmpegPromise){
-   if(!window.crossOriginIsolated)throw Error("FFmpeg requires cross-origin isolation. Start the local app with npm start so its COOP/COEP headers are enabled.");
+   if(!window.crossOriginIsolated)throw Error("FFmpeg requires cross-origin isolation. Open this site on localhost or HTTPS with COOP/COEP headers enabled.");
    if(!window.FFmpegWASM?.FFmpeg)throw Error("The local FFmpeg browser library failed to load.");
    ffmpeg=new window.FFmpegWASM.FFmpeg();
    ffmpeg.on("progress",event=>{

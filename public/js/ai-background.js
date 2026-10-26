@@ -1,6 +1,6 @@
 function aiBgTool(root){
  const SIZE=320,MAX_PIXELS=16000000,MAX_BYTES=25*1024*1024,MAX_BATCH=20,MAX_ZIP_BYTES=100*1024*1024;
- root.innerHTML=`<p id="ai-status" class="note" role="status" aria-live="polite">Runs locally in your browser. The first use loads the locally hosted AI model.</p>
+ root.innerHTML=`<p id="ai-status" class="note" role="status" aria-live="polite">Processes images in your browser; they are not uploaded to us. The first use downloads the AI model from this website.</p>
  <div class="opts">
   <label>Replace background<select id="ai-mode"><option value="transparent">Transparent</option><option value="color">Colour</option><option value="blur">Blur</option><option value="image">Image</option></select></label>
   <label>Background colour<input id="ai-color" type="color" value="#ffffff"></label>
