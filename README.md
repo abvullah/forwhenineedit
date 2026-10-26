@@ -2,26 +2,7 @@
 
 For when I need it is a website offering file, image, media, and text tools. The website is hosted online, but selected files and entered content are processed in your browser and are not uploaded to us or sent to a processing server. Your browser does request the site, libraries, and models from the website host; the host may receive ordinary technical request data such as your IP address. There are no user accounts, subscriptions, payments, analytics, or file-upload APIs.
 
-## Run locally
 
-Install [Node.js 24 or newer](https://nodejs.org/), then from this folder run:
-
-```sh
-npm start
-```
-
-Open <http://localhost:3000>. This starts the website on your own machine for development or personal use. The Node.js server serves the static files in `public/` and adds the security headers needed for browser workers and media processing. It accepts only `GET` and `HEAD` requests; files selected in the browser are never sent to it.
-
-To make the website available to others, deploy the contents of `public/` on a static host, or deploy the Node.js server behind a host configured to run it. The deployed site must provide the COOP/COEP headers required by some browser tools (notably FFmpeg). The website host serves app and runtime assets but does not receive selected file contents.
-
-Run the checks with:
-
-```sh
-npm run check
-npm test
-```
-
-The project has no npm runtime dependencies. `package-lock.json` is kept so `npm ci` can be used in automated environments.
 
 ## Tools
 
